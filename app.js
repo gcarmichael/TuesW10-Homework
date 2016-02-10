@@ -14,7 +14,7 @@ app.get('/weather', function(req, res){
 });
 
 app.get('/weather/:location', function(request, response){
-  http.get('http://api.openweathermap.org/data/2.5/weather?q=' + request.params + '&appid=93da4e0edf58a58b5044d6d7a25836e7&units=metric', function(res){
+  http.get('http://api.openweathermap.org/data/2.5/weather?q=' + request.params.location + '&appid=93da4e0edf58a58b5044d6d7a25836e7&units=metric', function(res){
     var body = "";
 
     res.on('data', function(d){
@@ -23,7 +23,7 @@ app.get('/weather/:location', function(request, response){
 
     res.on('end', function(){
       var weather = JSON.parse(body);
-      response.send(weather['Forecast:' + request.params]);
+      response.send(weather);
     });
   });
 });

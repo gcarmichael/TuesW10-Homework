@@ -1,6 +1,6 @@
 var Forecast = function(location){
   this.url = 'http://localhost:3000/weather/' + location;
-  this.data = null;
+  this.data;
 }
 
 Forecast.prototype = {
@@ -9,7 +9,6 @@ Forecast.prototype = {
     var request = new XMLHttpRequest();
     request.open('GET', this.url);
     request.onload = function(){
-      console.log(request.responseText);
       that.data = JSON.parse(request.responseText);
       callback();
     }
