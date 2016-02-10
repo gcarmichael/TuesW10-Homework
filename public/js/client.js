@@ -28,7 +28,7 @@ window.onload = function(){
     var currentForecast = new Forecast(location);
     currentForecast.get(function(){
       var data = currentForecast.data;
-      var forecastDisplay = "<h4> Forecast for " + data.name + ": " + data.weather[0].main + "</h4>" + "<h5>" + data.weather[0].description + "</h5>" + "<h5>" + data.main.temp + "'>";
+      var forecastDisplay = "<h4> Forecast for " + data.name + ": " + data.weather[0].main + "</h4>" + "<h5>" + data.weather[0].description + "</h5>" + "<h5>" + data.main.temp + "</h5>";
 
       forecastView.innerHTML = forecastDisplay;
     })
